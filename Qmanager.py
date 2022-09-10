@@ -5,7 +5,7 @@ import random as r
 class question_manager:
     def __init__(self):
         self.questions = [
-            [lambda a, b: (a - b) ** 2, "빼서 제곱".encode("utf-8")],
+            [lambda a, b: (a - b) ** 2, "빼서 제곱".encode("utf-8"), ""],
             [lambda a, b: a % b if a > b else b % a, "나머지".encode("utf-8")],
             [lambda a, b: a + b ** 2, "a+b**2".encode("utf-8")],
             [lambda a, b: a ** 2 + b, "a**2+b".encode("utf-8")],
