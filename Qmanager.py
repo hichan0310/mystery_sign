@@ -30,7 +30,9 @@ class question_manager:
             [lambda a, b: a * b + a // b + b // a, "a*b+몫".encode("utf-8")],
             [lambda a, b: sum(list(map(int, list(str(a + b))))), "더해서 자리수 합".encode("utf-8")],
             [lambda a, b: self.sumeverynum(a ** b), "a^b의 자리수 합(많이 변태같음)"],
-            [lambda a, b: self.jinbub_2(a) + self.jinbub_2(b), "이진법으로 바꾸고 2개 그대로 합하기"]
+            [lambda a, b: self.jinbub_2(a) + self.jinbub_2(b), "이진법으로 바꾸고 2개 그대로 합하기"],
+            [lambda a, b: sum(range(min(a, b), max(a, b) + 1)), "a~b 수들의 합"],
+            [lambda a, b: self.listmul(self.inttolist(a)) + self.listmul(self.inttolist(b)), "각 자리 숫자의 곱의 합(0은 곱하지 않음)"]
         ]
         self.length = len(self.questions)
         self.index = r.randint(0, self.length)
@@ -68,3 +70,13 @@ class question_manager:
         if a == 0:
             return 0
         return int(ans)
+
+    def inttolist(self, num):
+        return list(map(int, list(str(num))))
+
+    def listmul(self, numlist):
+        a = 1
+        for i in numlist:
+            if (i != 0):
+                a = a * i
+        return a
